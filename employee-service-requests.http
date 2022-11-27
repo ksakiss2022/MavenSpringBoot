@@ -28,5 +28,5 @@ GET http://localhost:8080/employees/salary/max
 GET http://localhost:8080/employees/salary/min
 ### Средний заработок сотрудников
 GET http://localhost:8080/employees/salary/average
-### Сотрудники с заработной платой выше среднего заработка
-GET http://localhost:8080/employees/high-salary
+#### Сотрудники с заработной платой выше среднего заработка
+#GET http://localhost:8080/employees/high-salary

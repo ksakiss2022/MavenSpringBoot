@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import static org.apache.coyote.http11.Constants.a;
-
 @Service
 public class EmployeeService {
     private final Map<Integer, Employee> employees = new HashMap<>();
@@ -55,12 +53,13 @@ public class EmployeeService {
                 .average().orElseThrow(NoSuchElementException::new);
     }
 
-        public Employee employeeHighSalary(EmployeeRequest employeeRequest) {
-        if (employeeRequest.getSalary() < getAverageSalary()){
-            throw new RuntimeException("зп меньше средней");
-        }
-        return (Employee) employees;
-    }
+//        public Employee employeeHighSalary(EmployeeRequest employeeRequest) {
+//        if (employeeRequest.getSalary() < getAverageSalary()){
+//            throw new RuntimeException("зп меньше средней");
+//        }
+//        return (Employee) employees;
+//    }
+
 
 }
 
