@@ -7,7 +7,7 @@ public class Employee {
     private String lastName;
     private int department;
     private int salary;
-
+//UpperCase/LowerCase/SwapCase/Capitalize/Uncapitalize - changes the case of a String
     public Employee(String firstName, String lastName, int department, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;

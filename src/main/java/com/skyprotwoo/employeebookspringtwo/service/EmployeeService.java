@@ -2,6 +2,7 @@ package com.skyprotwoo.employeebookspringtwo.service;
 
 import com.skyprotwoo.employeebookspringtwo.model.Employee;
 import com.skyprotwoo.employeebookspringtwo.record.EmployeeRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -52,13 +53,34 @@ public class EmployeeService {
                 mapToInt(Employee::getSalary)
                 .average().orElseThrow(NoSuchElementException::new);
     }
-public Collection<Employee> geteEployeeHighAverageSalary (){
+
+    public Collection<Employee> geteEployeeHighAverageSalary() {
         getAverageSalary();
         return ((Map<Integer, Employee>) employees.values()
-                        .stream()
-                        .filter(employee -> employee.getSalary()>getAverageSalary())
-                        .mapToInt(Employee::getSalary)).values();
-}
+                .stream()
+                .filter(employee -> employee.getSalary() > getAverageSalary())
+                .mapToInt(Employee::getSalary)).values();
+    }
+
+    public void checkEmployee(Employee employee) throws EmployeeSeviceExeption {
+        boolean firstNameIsBlankt = StringUtils.isBlank(employee.getFirstName());
+        boolean lastNameIsBlankt = StringUtils.isBlank(employee.getLastName());
+        boolean firstNameIsEmpty = StringUtils.isEmpty(employee.getFirstName());
+        boolean lastNameIsEmpty = StringUtils.isEmpty(employee.getLastName());
+        boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
+        boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
+        boolean firstNameIsNumeric = StringUtils.isNumeric(employee.getFirstName());
+        boolean lastNameIsNumeric = StringUtils.isNumeric(employee.getLastName());
+        boolean firstNameIsWhiteSpace = StringUtils.isNumeric(employee.getFirstName());
+        boolean lastNameIsWhiteSpace = StringUtils.isNumeric(employee.getLastName());
+        if (firstNameIsBlankt || lastNameIsBlankt ||
+                firstNameIsEmpty || lastNameIsEmpty
+                || !firstNameIsAlpha || !lastNameIsAlpha
+                || firstNameIsNumeric || lastNameIsNumeric
+                || firstNameIsWhiteSpace || lastNameIsWhiteSpace) {
+            throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
+        }
+    }
 }
 
 
