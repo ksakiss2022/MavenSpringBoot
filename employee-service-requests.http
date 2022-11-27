@@ -20,13 +20,13 @@ Content-Type: application/json
   "department": 1,
   "salary": 3000
 }
-### Получить сумму зарплат сотрудников
+###  Получить сумму зарплат сотрудников
 GET http://localhost:8080/employees/salary/sum
-### Получить макимальную сумму зарплаты сотрудника
+###  Получить макимальную сумму зарплаты сотрудника
 GET http://localhost:8080/employees/salary/max
-### Получить минимульную сумму зарплаты сотрудника
+###   Получить минимульную сумму зарплаты сотрудника
 GET http://localhost:8080/employees/salary/min
 ### Средний заработок сотрудников
 GET http://localhost:8080/employees/salary/average
-#### Сотрудники с заработной платой выше среднего заработка
+### Сотрудники с заработной платой выше среднего заработка
 #GET http://localhost:8080/employees/high-salary
