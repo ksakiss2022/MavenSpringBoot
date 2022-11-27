@@ -52,15 +52,13 @@ public class EmployeeService {
                 mapToInt(Employee::getSalary)
                 .average().orElseThrow(NoSuchElementException::new);
     }
-
-//        public Employee employeeHighSalary(EmployeeRequest employeeRequest) {
-//        if (employeeRequest.getSalary() < getAverageSalary()){
-//            throw new RuntimeException("зп меньше средней");
-//        }
-//        return (Employee) employees;
-//    }
-
-
+public Collection<Employee> geteEployeeHighAverageSalary (){
+        getAverageSalary();
+        return ((Map<Integer, Employee>) employees.values()
+                        .stream()
+                        .filter(employee -> employee.getSalary()>getAverageSalary())
+                        .mapToInt(Employee::getSalary)).values();
+}
 }
 
 
