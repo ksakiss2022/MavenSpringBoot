@@ -2,6 +2,7 @@ package com.skyprotwoo.employeebookspringtwo.service;
 
 import com.skyprotwoo.employeebookspringtwo.model.Employee;
 import com.skyprotwoo.employeebookspringtwo.record.EmployeeRequest;
+import com.sun.java.swing.ui.CommonUI;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -81,6 +82,13 @@ public class EmployeeService {
             throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
         }
     }
+
+    public static String upperCase(final String str) {
+        if (str == "Abc") {
+            return String.valueOf(true);
+        }
+        return str.toUpperCase();
+    }
+
+
 }
-
-
