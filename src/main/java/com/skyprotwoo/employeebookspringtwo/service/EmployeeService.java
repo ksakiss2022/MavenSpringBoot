@@ -66,19 +66,8 @@ public class EmployeeService {
     public void checkEmployee(Employee employee) throws EmployeeSeviceExeption {
         boolean firstNameIsBlankt = StringUtils.isBlank(employee.getFirstName());
         boolean lastNameIsBlankt = StringUtils.isBlank(employee.getLastName());
-        boolean firstNameIsEmpty = StringUtils.isEmpty(employee.getFirstName());
-        boolean lastNameIsEmpty = StringUtils.isEmpty(employee.getLastName());
-        boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
-        boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
-        boolean firstNameIsNumeric = StringUtils.isNumeric(employee.getFirstName());
-        boolean lastNameIsNumeric = StringUtils.isNumeric(employee.getLastName());
-        boolean firstNameIsWhiteSpace = StringUtils.isNumeric(employee.getFirstName());
-        boolean lastNameIsWhiteSpace = StringUtils.isNumeric(employee.getLastName());
-        if (firstNameIsBlankt || lastNameIsBlankt ||
-                firstNameIsEmpty || lastNameIsEmpty
-                || !firstNameIsAlpha || !lastNameIsAlpha
-                || firstNameIsNumeric || lastNameIsNumeric
-                || firstNameIsWhiteSpace || lastNameIsWhiteSpace) {
+
+        if (firstNameIsBlankt || lastNameIsBlankt) {
             throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
         }
     }
