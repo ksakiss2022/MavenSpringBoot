@@ -6,10 +6,8 @@ import com.skyprotwoo.employeebookspringtwo.record.EmployeeRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -55,18 +53,15 @@ public class EmployeeService {
                 .average().orElseThrow(NoSuchElementException::new);
     }
 
-    //По поводу вычисления зарплаты выше средней и получения сотрудников с такой зарплатой:
-    //
-    //вычисляешь среднюю зп и присваиваешь ее переменной
-    //Пишешь стрим -> values().stream().filter
-    // (//Тут выбираешь только тех сотрудников у которых зп выше средней).collect(Collectors.toList())
-//    public Collection<Employee> geteEployeeHighAverageSalary() {
-//        getAverageSalary();
-//        return ((Map<Integer, Employee>) employees.values()
-//                .stream()
-//                .filter(employee -> employee.getSalary() > getAverageSalary())
-//                .mapToInt(Employee::getSalary)).values();
-//    }
+//    public double egeavarageSalary = employees.values()
+//            .stream()
+//            .mapToInt(Employee::getSalary)
+//            .average()
+//            .orElseThrow(NoSuchElementException::new);
+   public Collection<Employee> employeeHighAverageSalary = employees.values()
+            .stream().filter(e -> e.getSalary() > getAverageSalary())
+            .collect(Collectors.toList());
+
     public void checkEmployee(Employee employee) throws EmployeeSeviceExeption {
         boolean firstNameIsBlankt = StringUtils.isBlank(employee.getFirstName());
         boolean lastNameIsBlankt = StringUtils.isBlank(employee.getLastName());
@@ -75,6 +70,7 @@ public class EmployeeService {
             throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
         }
     }
+
     public void checkName(Employee employee) throws EmployeeSeviceExeption {
         boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
         boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
@@ -82,12 +78,14 @@ public class EmployeeService {
         if (firstNameIsAlpha || lastNameIsAlpha) {
             throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
 
-        }else {
+        } else {
             final var firstNameUpperCase = employee.getFirstName() == StringUtils.capitalize("Abc");
             final var lastNameIsAlphaUpperCase = employee.getLastName() == StringUtils.capitalize("Abc");
 
         }
     }
+
+
 }
 
 
