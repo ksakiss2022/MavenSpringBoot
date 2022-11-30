@@ -46,8 +46,8 @@ public class EmployeeController {
         return this.employeeService.getAverageSalary();
 
     }
-    @GetMapping("/employees/salary-high-salary")
-    public Collection<Employee> geteEployeeHighAverageSalary(){
-        return employeeService.geteEployeeHighAverageSalary();
-    }
+//    @GetMapping("/employees/salary-high-salary")
+//    public Collection<Employee> geteEployeeHighAverageSalary(){
+//        return employeeService.geteEployeeHighAverageSalary();
+//    }
 }
