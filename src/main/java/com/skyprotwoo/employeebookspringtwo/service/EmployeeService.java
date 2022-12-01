@@ -71,19 +71,20 @@ public class EmployeeService {
         }
     }
 
-    public void checkName(Employee employee) throws EmployeeSeviceExeption {
-        boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
-        boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
+//    public void checkName(Employee employee) throws EmployeeSeviceExeption {
+//        boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
+//        boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
+//
+//        if (firstNameIsAlpha || lastNameIsAlpha) {
+//            throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
+//
+//        } else {
+//            final var firstNameUpperCase = employee.getFirstName() == StringUtils.capitalize("Abc");
+//            final var lastNameIsAlphaUpperCase = employee.getLastName() == StringUtils.capitalize("Abc");
+//
+//        }
+//    }
 
-        if (firstNameIsAlpha || lastNameIsAlpha) {
-            throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
-
-        } else {
-            final var firstNameUpperCase = employee.getFirstName() == StringUtils.capitalize("Abc");
-            final var lastNameIsAlphaUpperCase = employee.getLastName() == StringUtils.capitalize("Abc");
-
-        }
-    }
 
 
 }

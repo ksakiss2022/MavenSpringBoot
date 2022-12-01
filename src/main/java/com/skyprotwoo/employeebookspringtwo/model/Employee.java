@@ -12,8 +12,8 @@ public class Employee {
 
     //UpperCase/LowerCase/SwapCase/Capitalize/Uncapitalize - changes the case of a String
     public Employee(String firstName, String lastName, int department, int salary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = StringUtils.capitalize(firstName);
+        this.lastName = StringUtils.capitalize(lastName);
         this.department = department;
         this.salary = salary;
 
