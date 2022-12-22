@@ -2,7 +2,6 @@ package com.skyprotwoo.employeebookspringtwo.service;
 
 import com.skyprotwoo.employeebookspringtwo.model.Employee;
 import com.skyprotwoo.employeebookspringtwo.record.EmployeeRequest;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -53,40 +52,20 @@ public class EmployeeService {
                 .average().orElseThrow(NoSuchElementException::new);
     }
 
-//    public double egeavarageSalary = employees.values()
+    //    public double egeavarageSalary = employees.values()
 //            .stream()
 //            .mapToInt(Employee::getSalary)
 //            .average()
 //            .orElseThrow(NoSuchElementException::new);
-   public Collection<Employee> employeeHighAverageSalary = employees.values()
+    public Collection<Employee> employeeHighAverageSalary = employees.values()
             .stream().filter(e -> e.getSalary() > getAverageSalary())
             .collect(Collectors.toList());
 
     public void checkEmployee(Employee employee) throws EmployeeSeviceExeption {
         boolean firstNameIsBlankt = StringUtils.isBlank(employee.getFirstName());
         boolean lastNameIsBlankt = StringUtils.isBlank(employee.getLastName());
-
         if (firstNameIsBlankt || lastNameIsBlankt) {
             throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
         }
     }
-
-//    public void checkName(Employee employee) throws EmployeeSeviceExeption {
-//        boolean firstNameIsAlpha = StringUtils.isAlpha(employee.getFirstName());
-//        boolean lastNameIsAlpha = StringUtils.isAlpha(employee.getLastName());
-//
-//        if (firstNameIsAlpha || lastNameIsAlpha) {
-//            throw new EmployeeSeviceExeption("Не верно заданы поля имя или фамилия!");
-//
-//        } else {
-//            final var firstNameUpperCase = employee.getFirstName() == StringUtils.capitalize("Abc");
-//            final var lastNameIsAlphaUpperCase = employee.getLastName() == StringUtils.capitalize("Abc");
-//
-//        }
-//    }
-
-
-
 }
-
-

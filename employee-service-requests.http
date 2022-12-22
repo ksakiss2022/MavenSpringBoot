@@ -20,6 +20,7 @@ Content-Type: application/json
   "department": 1,
   "salary": 3000
 }
+
 ###  Получить сумму зарплат сотрудников
 GET http://localhost:8080/employees/salary/sum
 ###  Получить макимальную сумму зарплаты сотрудника
@@ -30,3 +31,14 @@ GET http://localhost:8080/employees/salary/min
 GET http://localhost:8080/employees/salary/average
 ### Сотрудники с заработной платой выше среднего заработка
 GET http://localhost:8080/employees/salary-high-salary
+
+//- `GET [http://localhost:8080/department/employees](http://localhost:8080/department/employees)
+//– возвращает список сотрудников по департаменту`.
+//- `GET [http://localhost:8080/department/{id}/salary/sum](http://localhost:8080/department/%7Bid%7D/salary/sum)
+// – возвращает сумму зарплат по департаменту`.
+//- `GET [http://localhost:8080/department/{id}/salary/max](http://localhost:8080/department/%7Bid%7D/salary/max)
+//– возвращает максимальную зарплату по департаменту`.
+//- `GET [http://localhost:8080/department/{id}/salary/min](http://localhost:8080/department/%7Bid%7D/salary/min)
+//– возвращает минимальную зарплату по департаменту`.
+//- `GET [http://localhost:8080/department/employees](http://localhost:8080/department/employees)
+//– возвращает сотрудников сгруппированых по отделам в виде Map<Integer,List<Employees>> где ключ - это номер отдела, а значение - список сотрудников данного отдела`.

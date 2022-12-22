@@ -23,7 +23,7 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public void createEmployee(@RequestBody EmployeeRequest employeeRequest) {
-        this.employeeService.addEmployee(employeeRequest);
+        this.employeeService.addEmployee();
     }
 
     @GetMapping("/employees/salary/sum")
