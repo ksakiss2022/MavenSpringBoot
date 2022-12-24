@@ -1,7 +1,6 @@
 package com.skyprotwoo.employeebookspringtwo.service;
 
 import com.skyprotwoo.employeebookspringtwo.model.Employee;
-import com.skyprotwoo.employeebookspringtwo.record.EmployeeRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ public class EmployeeService {
         return this.employees.values();
     }
 
-    public Employee addEmployee(EmployeeRequest employeeRequest) {
+    public Employee addEmployee() {
         if (employeeRequest.getFirstName() == null || employeeRequest.getLastName() == null) {
             throw new IllegalArgumentException("Значение должно быть заполнено");
         }
